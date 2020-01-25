@@ -7,8 +7,8 @@
 
 
 //Fast approach - was really proud of this solution
-// It's O(n) space and constant space (because the alphabet will be
-// be more than 26 letters)
+// It's O(n) space and O(N) space for the array I create to store the letters
+// of this input
 function caesarCipherEncryptor(string, key) {
   let flatStr = string.toLowerCase();
   let idxs = {},
@@ -32,3 +32,5 @@ function caesarCipherEncryptor(string, key) {
   }
   return newString.join('');
 }
+
+
