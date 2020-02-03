@@ -4,7 +4,6 @@
 
 function selectionSort(array) {
       
-      if (!array.length) return []
       for (let i = 0; i < array.length; i++) {
           let smallest = Infinity;
           let smallestIdx;
