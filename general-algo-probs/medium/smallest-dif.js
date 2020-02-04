@@ -1,6 +1,7 @@
 
 // This naive solution runs on O(n * m) time and constant ( O(1) )space
-// To me, it felt like an elegant, easy thing to write
+// To me, it felt like an elegant, easy thing to write, but obviously,
+// is not optimal. The optimal solution is below!
 function smallestDifferenceNaiveSolution (arr1, arr2) {
     const least = Infinity
     const pair = []
@@ -18,7 +19,10 @@ function smallestDifferenceNaiveSolution (arr1, arr2) {
 // This solution is the more complex and time efficient way to solve the problem
 // Here, I first sort both arrays, and then iterate through them both
 // depending on which element is biggest (if the element in one array is bigger
-// than the 
+// than the element in the other, than I know I should increment the pointer in the second
+// one, because the difference will only get bigger the other way around)
+
+// This is O(log(n) * n) time complexity
 function smallestDifference (arr1, arr2) {
 
     const arr1Sorted = arr1.sort((a, b) => a - b)
