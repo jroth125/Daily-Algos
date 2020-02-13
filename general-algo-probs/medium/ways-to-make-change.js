@@ -1,6 +1,6 @@
-// Given and array of coins and and a target amount, return the smallest amount of 
-// coins you need to make that target amount
-// Ex: waysToMakeChange([2, 5, 10], 12) => 2
+// Given and array of coins and and a target amount, return the maximum amount of 
+// coins you can have to make that target amount
+// Ex: waysToMakeChange([2, 5, 10], 12) => 6
 
 const waysToMakeChange = (coins, amount) => {
     const waysArray = Array(amount + 1).fill(1);
