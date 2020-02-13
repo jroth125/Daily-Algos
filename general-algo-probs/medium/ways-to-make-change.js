@@ -10,17 +10,13 @@ const waysToMakeChange = (coins, amount) => {
     })
 
     for (let i = 1; i < coins.length; i++) {
-        
+        for (let j = coin; j < waysArray.length; j++) {
+            waysArray[j] += waysArray[j] + waysArray[j - coin]
+        }
     }
 
-    coins.forEach(coin => {
-        if (coin !== 1) {
-          for (let i = coin; i < waysArray.length; i++) {
-            waysArray[i] = waysArray[i] + waysArray[i - coin];
-          }
-        }
-      });
-      return waysArray[amount];
+    return waysArray[amount]
+
         
 };
 
