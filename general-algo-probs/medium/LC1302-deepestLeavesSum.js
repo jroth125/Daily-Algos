@@ -4,6 +4,8 @@ Example: Input: root = [1,2,3,4,5,null,6,7,null,null,null,null,8]
 Output: 15
 */
 
+// O(n) time and O(n) space - must traverse through all of the nodes
+
 var deepestLeavesSum = function(root, level = 1) {
     let levelObj = {}
     findDeepest(root, 1, levelObj)
