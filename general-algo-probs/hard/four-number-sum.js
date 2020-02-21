@@ -4,6 +4,10 @@
 // that sum up to the target sum and return them in a larger array 
 // in no particular order
 
+
+// This is a O(n^3) solution in its time complexity and O(n) in time
+// if 
+
 function fourNumberSum(array, targetSum) {
     let newArr = array.sort((a, b) => a - b)
     let sums = []
