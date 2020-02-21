@@ -10,8 +10,21 @@ function fourNumberSum(array, targetSum) {
             let right = newArr.length - 1
 
             while (left < right) {
-                let curSum = 
+                let curSum = newArr[left] + newArr[right] + P1 + P2
+                if (curSum === targetSum) {
+                    sums.push([newArr[left], newArr[right], P1, P2])
+                    ++left
+                    --right
+                } else if (curSum < targetSum) {
+                    ++left
+                } else {
+                    --right
+                }
             }
         }
     }
+    return sums
   }
+
+
+  console.log(fourNumberSum([7, 6, 4, -1, 1, 2], 16))

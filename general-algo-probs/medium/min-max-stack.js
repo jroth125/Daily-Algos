@@ -17,7 +17,11 @@ class MinMaxStack {
   
     push(number) {
       // Write your code here.
+
       this.stack.push(number)
+      if (!this.stack.length) {
+        this.minMax
+    }
       let curMinMax = this.minMax[this.minMax.length - 1]
       if (number < curMinMax[0]) {
           this.minMax.push([number, curMinMax[1]])
@@ -30,10 +34,10 @@ class MinMaxStack {
     }
   
     getMin() {
-      // Write your code here.
+      return this.minMax[this.minMax.length - 1][0]
     }
   
     getMax() {
-      // Write your code here.
+      return this.minMax[this.minMax.length - 1][1]
     }
   }
