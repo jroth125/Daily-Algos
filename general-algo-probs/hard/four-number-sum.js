@@ -1,3 +1,9 @@
+// Write a function that takes in a non-empty array of 
+// distinct inteers and an integer representing a target 
+// sum/ The function should find all quadruplets in the array 
+// that sum up to the target sum and return them in a larger array 
+// in no particular order
+
 function fourNumberSum(array, targetSum) {
     let newArr = array.sort((a, b) => a - b)
     let sums = []
