@@ -1,5 +1,6 @@
 // non-optimal solution
 function kadanesAlgorithm(array) {
+
     let most = -Infinity
     for (let i = 0; i < array.length; i++) {
         let curNum = array[i]
@@ -12,7 +13,7 @@ function kadanesAlgorithm(array) {
             most = curSum > most ? curSum : most
             curSum = -Infinity
         }
-
+        most = curNum > most ? curNum : most
     }
     return most
   }
