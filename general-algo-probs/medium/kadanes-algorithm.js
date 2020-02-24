@@ -1,23 +1,26 @@
 // // non-optimal solution
-// function kadanesAlgorithm(array) {
 
-//     let most = -Infinity
-//     for (let i = 0; i < array.length; i++) {
-//         let curNum = array[i]
+// This is O(n^3) and O(1) space
+function kadanesAlgorithmNonOptimal(array) {
 
-//         for (let j = 0; j < i; j++) {
-//             let curSum = curNum
-//             for (let k = j; k < i; k++) {
-//                 curSum += array[k]
-//             }
-//             most = curSum > most ? curSum : most
-//             curSum = -Infinity
-//         }
-//         most = curNum > most ? curNum : most
-//     }
-//     return most
-//   }
+    let most = -Infinity
+    for (let i = 0; i < array.length; i++) {
+        let curNum = array[i]
 
+        for (let j = 0; j < i; j++) {
+            let curSum = curNum
+            for (let k = j; k < i; k++) {
+                curSum += array[k]
+            }
+            most = curSum > most ? curSum : most
+            curSum = -Infinity
+        }
+        most = curNum > most ? curNum : most
+    }
+    return most
+  }
+
+//   O(n) time and O(n) space
   function kadanesAlgorithm (array) {
       let sums = array.map(num => num)
       for (let i = 1; i < array.length; i++) {
