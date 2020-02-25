@@ -16,3 +16,11 @@
 // 	return getNthFib(n - 2) + getNthFib(n - 1)
 // }
 
+function getNthFib (n, memoize = {1: 0, 2: 1, 3: 1, 4: 2}) {
+    if (memoize[n] !== undefined) return memoize[n]
+    memoize[n] = getNthFib(n - 2, memoize) + getNthFib(n - 1, memoize)
+    return memoize[n]
+}
+
+
+
