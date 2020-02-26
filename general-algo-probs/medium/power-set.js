@@ -9,7 +9,8 @@ function powerset(array) {
         }
         setLength = set.length
     }
+    console.log('set length is:', set.length)
     return set
   }
 
-  console.log(powerset([1, 2, 3, 4, 5, 6]))
+powerset([1, 2, 3, 4, 5, 6, 7, 8])
