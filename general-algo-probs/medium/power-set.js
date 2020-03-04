@@ -1,3 +1,6 @@
+
+// Time complexity is O(n * 2^n) where n is the array length
+// Space complexity is the same O(n * 2^n)
 function powerset(array) {
     let set = [[]]
     let setLength = 1
@@ -13,4 +16,3 @@ function powerset(array) {
     return set
   }
 
-powerset([1, 2, 3, 4, 5, 6, 7, 8])
