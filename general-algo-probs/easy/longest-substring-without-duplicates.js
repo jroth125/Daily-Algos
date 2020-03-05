@@ -26,13 +26,15 @@ function longestSubstringWithoutDuplication(string) {
 			amt[i] = amt[i - 1] + 1
 			hash[curChar] = i
 		} else {
-			amt[i] = amt[i-1] - hash[curChar]
+			amt[i] = amt[i-1] - hash[curChar] > 0 ? amt[i-1] - hash[curChar] : i - hash[curChar]
 			hash[curChar] = i
 		}
 	}
-	let idxOfMax = Math.max(...amt)
-	console.log(amt)
-	return string.slice(idxOfMax - amt[idxOfMax], idxOfMax)
+	let maxAmt = Math.max(...amt)
+	let idxOfMax = amt.indexOf(maxAmt)
+	console.log(idxOfMax, amt)
+
+	return string.slice(idxOfMax - 1 - amt[idxOfMax], idxOfMax)
 }
 
 console.log(longestSubstringWithoutDuplication('clementisacap'))
