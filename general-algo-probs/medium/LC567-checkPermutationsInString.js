@@ -15,16 +15,16 @@ Input:s1= "ab" s2 = "eidboaoo"
 Output: False
  
 */
-var checkInclusion = function(s1, s2) {
+const checkInclusion = (s1, s2) => {
     let hash1 = {}
-    for (let i = 0; i < s1.length; i++) {
-        let char1 = s1[i]
-        if (!hash1[char1]) hash1[char1] = 1
-        else ++hash1[char1]
-    }
     let hash2 = {}
     for (let i = 0; i < s1.length; i++) {
+        let char1 = s1[i]
         let char2 = s2[i]
+        
+        if (!hash1[char1]) hash1[char1] = 1
+        else ++hash1[char1]
+        
         if (!hash2[char2]) hash2[char2] = 1
         else ++hash2[char2]
     }
