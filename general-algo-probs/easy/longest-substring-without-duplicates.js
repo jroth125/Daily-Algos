@@ -26,7 +26,7 @@ function longestSubstringWithoutDuplication(string) {
 			amt[i] = amt[i - 1] + 1
 			hash[curChar] = i
 		} else {
-			amt[i] = amt[i-1] - hash[curChar] > 0 ? amt[i-1] - hash[curChar] : i - hash[curChar]
+			amt[i] = amt[i-1] - hash[curChar] > 0 ? amt[i-1] - hash[curChar]: i - hash[curChar]
 			hash[curChar] = i
 		}
 	}
