@@ -9,3 +9,14 @@ const maxProfit = prices => {
   }
   return maxProf;
 };
+
+
+const betterMaxProfit = prices => {
+    let lowest = Infinity
+    let maxProf = 0
+    prices.forEach(price => {
+        maxProf = Math.max(price - lowest, maxProf)
+        lowest = Math.min(price, lowest)
+    })
+    return maxProf
+}
