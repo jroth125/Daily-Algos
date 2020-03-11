@@ -1,10 +1,4 @@
-let myGraph = {
-    a: ['b'],
-    b: ['c'],
-    c: ['c', 'd', 'e'],
-    d: ['b'],
-    e: []
-}
+
 
 const doesPathExist = (graph, a, b, past = {}) => {
     if (past[a]) return;
@@ -15,6 +9,17 @@ const doesPathExist = (graph, a, b, past = {}) => {
         if (doesPathExist(graph, node, b, past)) isPath = true
     })
     return isPath
+}
+
+
+
+//testing
+let myGraph = {
+    a: ['b'],
+    b: ['c'],
+    c: ['c', 'd', 'e'],
+    d: ['b'],
+    e: []
 }
 
 console.log(doesPathExist(myGraph, 'd', 'a'))
