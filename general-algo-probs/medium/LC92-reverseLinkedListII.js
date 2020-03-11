@@ -7,9 +7,7 @@ const reverseBetween = (head, m, n) => {
         if (counter === m) chunkTwoStart = curNode
         if (counter === n) chunkTwoEnd = curNode
         if (counter === n + 1) chunkThreeStart = curNode
-        console.log('count is at',curNode)
         curNode = curNode.next 
-
     }
 
     if (chunkOneEnd) chunkOneEnd.next = null
@@ -22,7 +20,6 @@ const reverseBetween = (head, m, n) => {
         let newNode = curNode.next ? curNode.next : null
         curNode.next = reverseHead
         reverseHead = curNode
-        console.log('node is', curNode)
         curNode = newNode ? newNode : null
         ++newCount
         
@@ -30,4 +27,9 @@ const reverseBetween = (head, m, n) => {
     if (chunkOneEnd) chunkOneEnd.next = chunkTwoEnd
     if (chunkThreeStart) chunkTwoStart.next = chunkThreeStart
     return m === 1 ? chunkTwoEnd : head
+}
+
+
+const reverseBetter = (head, m, n) => {
+    let 
 }
