@@ -10,22 +10,21 @@ const reverseLinkedList = (head, m, n) => {
         curNode = curNode.next 
     }
 
-    chunkOneEnd.next = null
+    if (chunkOneEnd) chunkOneEnd.next = null
     curNode = chunkTwoStart.next
-    let lastNode = chunkTwoStart
+    let reverseHead = chunkTwoStart
+    reverseHead.next = null
     let newCount = 0
     // traverse and reverse the middle chunk
-    while (newCount < (n - m) + 1) {
+    while (newCount <= (n - m)) {
+        let newNode = curNode.next ? curNode.next : null
+        curNode.next = reverseHead
+        reverseHead = curNode
+        curNode = newNode ? newNode : null
         ++newCount
-        console.log(curNode)
-        let newNode = curNode.next
-        curNode.next = lastNode
-        lastNode = curNode
-        curNode = newNode
     }
-    chunkTwoStart.next = chunkThreeStart
-    chunkOneEnd.next = chunkTwoEnd
-
+    if (chunkOneEnd) chunkOneEnd.next = chunkTwoEnd
+    if (chunkThreeStart) chunkTwoStart.next = chunkThreeStart
     return head
 }
 
