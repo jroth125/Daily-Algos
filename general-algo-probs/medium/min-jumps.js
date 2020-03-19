@@ -10,3 +10,5 @@ function minNumberOfJumps(array) {
 	})
 	return jumps[array.length - 1]
 }
+
+// this solution is n^2
