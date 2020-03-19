@@ -11,6 +11,13 @@ const doesPathExist = (graph, a, b, past = {}) => {
     return isPath
 }
 
+const doesPathExistBFS = (graph, start, end) => {
+    let queue = []
+    while (queue.length) {
+        
+    }
+}
+
 
 
 //testing
