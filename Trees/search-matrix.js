@@ -18,6 +18,7 @@ Output: true
 */
 
 var searchMatrix = function(matrix, target) {
+    debugger;
     if (!matrix.length) return false
     let L = 0
     let R = matrix.length - 1
@@ -29,6 +30,8 @@ var searchMatrix = function(matrix, target) {
         else if (midPoint > target) R = mid
         else L = mid + 1
     }
+
+    console.log(L, R)
     
     mid = Math.floor((L + R) / 2)
     let curArr = matrix[mid]
@@ -38,8 +41,10 @@ var searchMatrix = function(matrix, target) {
         let curMid = Math.floor((left + right) / 2)
         let curVal = curArr[curMid]
         if (curVal === target) return true
-        else if (curVal > target) right = mid - 1
-        else left = mid + 1
+        else if (curVal > target) right = curMid - 1
+        else left = curMid + 1
     }
     return false
 };
+
+console.log(searchMatrix([[1], [3]], 2))
