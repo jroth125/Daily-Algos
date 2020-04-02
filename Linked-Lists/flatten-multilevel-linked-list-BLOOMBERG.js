@@ -18,3 +18,38 @@ Explanation:
 
 The multilevel linked list in the input is as follows:
 */
+
+/**
+ * // Definition for a Node.
+ * function Node(val,prev,next,child) {
+ *    this.val = val;
+ *    this.prev = prev;
+ *    this.next = next;
+ *    this.child = child;
+ * };
+ */
+
+const flatten = (head, parent = null) => {
+    let curNode = head
+    let tail;
+    
+    while (curNode) {
+        if (!curNode.next) tail = curNode
+        if (!curNode.child) {
+            curNode = curNode.next
+        } else {
+            let afterNode = curNode.next
+            let lastNode = flatten(curNode.child, curNode)
+            if (afterNode) {
+            lastNode.next = afterNode
+            afterNode.prev = lastNode
+            }
+            curNode.next = curNode.child
+            curNode.next.prev = curNode
+            curNode.child = null
+            curNode = curNode.next
+        }
+    }
+    if (parent) return tail
+    else return head
+};
