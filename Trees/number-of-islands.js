@@ -1,5 +1,34 @@
 
+/*
+Leetcode: 200. Number of Islands
+Medium
 
+
+
+Share
+Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
+An island is surrounded by water and is formed by connecting adjacent lands horizontally 
+or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+Example 1:
+Input:
+11110
+11010
+11000
+00000
+
+Output: 1
+
+
+Example 2:
+Input:
+11000
+11000
+00100
+00011
+
+Output: 3
+*/
 const numIslands = (grid) => {
     //make another array called visited, where we set all cells to false initially
     // make it this way, because if you use too much of the Array.fill() method, you can run into weird bugs
@@ -19,6 +48,8 @@ const numIslands = (grid) => {
     // explore will explore the surround cells for 1's that haven't been visited
       if (!visited[r][c] && curCell === '1') {
         explore(grid, visited, r, c);
+        // we have visited a 1 that wasn't visited yet, then add to the count. Otherwise, our explore 
+        // function will have visited it
         ++count
       }
     }
