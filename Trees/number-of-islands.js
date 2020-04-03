@@ -58,13 +58,16 @@ const numIslands = (grid) => {
 };
 
 function explore(matrix, visited, r, c) {
-  if (
+//   this if statement checks if the cell/row doesn't exist, if it's zero, or if it's been visited
+// and just returns and ends the function call if any of those conditions are satisfied
+    if (
     !matrix[r] ||
     !matrix[r][c] ||
     matrix[r][c] === '0' ||
     visited[r][c] === true
   ) return;
   else if (matrix[r][c] === '1' && visited[r][c] === false){
+    //   else, we set visited to true and recurse to the adjacent cells
     visited[r][c] = true;
     explore(matrix, visited, r - 1, c);
     explore(matrix, visited, r + 1, c);
