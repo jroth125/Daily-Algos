@@ -36,7 +36,7 @@ const decodeString = (string, start = 0) => {
     
     for (let i = start; i < string.length; i++) {
         let curChar = string[i]
-        if (type[curChar] === 'number') curNum += curChar //edge cases for multidigs not supported yet
+        if (type[curChar] === 'number') curNum += curChar 
         else if (type[curChar] === 'letter') decoded += curChar
         else if (curChar === '[') {
             let [strInBracks, endIdx] = decodeString(string, i + 1)
