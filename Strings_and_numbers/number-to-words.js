@@ -57,3 +57,5 @@ const numberToWords = (num, more = false) => {
 
     
 };
+
+console.log(numberToWords(234234))
