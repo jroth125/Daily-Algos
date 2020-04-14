@@ -59,7 +59,6 @@ function pushRest(merged, pointer, numsArr, end) {
 // Here we have pointers p1 and p2 which are tracking the current numbers to compare
 // and we also have p, which is tracking the next index in the nums1 array to swap
 const mergeBetter = (nums1, m, nums2, n) => {
-    debugger;
     let p = nums1.length - 1
     let p1 = m - 1
     let p2 = n - 1
