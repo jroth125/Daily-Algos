@@ -6,7 +6,6 @@ class LRUCache {
     }
   
     insertKeyValuePair(key, value) {
-      // Write your code here.
           if (!this.queue) {
               this.queue = new Queue(value, key, this.maxSize)
               this.hash[key] = this.queue.head
@@ -24,7 +23,6 @@ class LRUCache {
     }
   
     getValueFromKey(key) {
-      // Write your code here.
           if (!this.hash[key]) return null
           else if (this.queue.count === 1){
               return this.hash[key].value
@@ -36,7 +34,6 @@ class LRUCache {
     }
   
     getMostRecentKey() {
-      // Write your code here.
           return this.queue.tail.key
     }
   }
