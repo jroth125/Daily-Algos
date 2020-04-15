@@ -13,7 +13,6 @@ const stepsToN = (n, curLoc = 0, counter = {ways: 0}) => {
 
 
 const betterStepsToN = (n, curLoc = 0, ways = 0, fromHere = {}) => {
-    debugger;
     if (curLoc === n) return 1
     if (fromHere[curLoc] !== undefined) return fromHere[curLoc]
     for (let i = 1; i < 4; i++) {
@@ -25,3 +24,4 @@ const betterStepsToN = (n, curLoc = 0, ways = 0, fromHere = {}) => {
 }
 
 
+console.log(betterStepsToN(50))
