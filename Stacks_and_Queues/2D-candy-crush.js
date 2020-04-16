@@ -1,4 +1,4 @@
-var candyCrush = function(board) {
+const candyCrush = (board) => {
   let scanCandy = true;
   while (scanCandy) {
       let vertical = markCandyVertical(board)
