@@ -1,5 +1,6 @@
 /*
 Leetcode 56: Merge Intervals
+Medium
 
 Given a collection of intervals, merge all overlapping intervals.
 
