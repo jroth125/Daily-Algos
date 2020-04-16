@@ -34,7 +34,6 @@ function markCandyVertical(board) {
 }
 
 function markCandyHorizontal(board) {
-  debugger;
   let scanCandy = false;
   for (let row = 0; row < board.length; row++) {
     let amt = 0;
@@ -71,6 +70,8 @@ function collapseCandy(board) {
   }
 }
 
+
+//for testing:
 console.log(
   candyCrush([
     [110, 5, 112, 113, 114],
