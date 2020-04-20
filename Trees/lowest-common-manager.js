@@ -31,4 +31,25 @@ function getLowestCommonManager(topManager, reportOne, reportTwo) {
   }
 
 
+
+// Alternative, BETTER way of solving this (by using recursion to keep a tally on the number 
+// of the relevant reports in a manager's subtree, and then return them up the tree, along with
+// the lowestCommonManager at that point)
+
+  function getLowestCommonManagerBetter(topManager, reportOne, reportTwo) {
+    // Write your code here.
+      return getOrgInfo(topManager, reportOne, reportTwo)[0]
+  }
+  
+  function getOrgInfoBetter (manager, reportOne, reportTwo) {
+      let num = 0	
+      if (manager === reportOne || manager === reportTwo) ++num
+      for (const report of manager.directReports) {
+          const [lowestCommonManager, ourNum] = getOrgInfo(report, reportOne, reportTwo)
+          if (!!lowestCommonManager) return [lowestCommonManager, ourNum]
+          num += ourNum
+      }
+      let lcmRightNow = num === 2 ? manager : null
+      return [lcmRightNow, num]
+  }
   
