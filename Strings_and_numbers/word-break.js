@@ -1,27 +1,27 @@
-// var wordBreak = function(string, wordDict) {
-//     debugger;
-//     const usedWords = Array(wordDict.length).fill(false)
-//     let breaks = breakTheWord(string, wordDict, usedWords)
-//     if (usedWords.indexOf(false) === -1 && breaks > 0) return true
-//     else return false
-// };
+/*139. Word Break
+Medium
 
+Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
 
-// function breakTheWord(string, wordDict, used) {
-//         let wordBreaks = 0
-//     for (let dictIdx = 0; dictIdx < wordDict.length; dictIdx++) {
-//         const word = wordDict[dictIdx]
-//         if (word.length > string.length) continue;
-//         let curWord = string.slice(0, word.length)
-//         if (curWord === word && string.length === word.length) return 1 
-//         else if (curWord === word) {
-//             used[dictIdx] = true
-//             let newString = string.slice(word.length)
-//             wordBreaks += breakTheWord(newString, wordDict, used)
-//         }
-//     }
-//     return wordBreaks
-// }
+Note:
+
+The same word in the dictionary may be reused multiple times in the segmentation.
+You may assume the dictionary does not contain duplicate words.
+Example 1:
+
+Input: s = "leetcode", wordDict = ["leet", "code"]
+Output: true
+Explanation: Return true because "leetcode" can be segmented as "leet code".
+Example 2:
+
+Input: s = "applepenapple", wordDict = ["apple", "pen"]
+Output: true
+Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
+             Note that you are allowed to reuse a dictionary word.
+Example 3:
+
+Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
+Output: false */
 
 
 const wordBreak = (string, wordDict) => {
