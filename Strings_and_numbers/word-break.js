@@ -24,10 +24,9 @@
 // }
 
 
-var wordBreak = function(string, wordDict) {
-    const usedWords = Array(wordDict.length).fill(false)
+const wordBreak = (string, wordDict) => {
     let allWords = new Set(wordDict)
-    return breakTheWord(string, wordDict, allWords) && usedWords.indexOf(false) !== -1
+    return breakTheWord(string, wordDict, allWords)
 };
 
 
