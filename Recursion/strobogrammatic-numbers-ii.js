@@ -38,3 +38,5 @@ const findStrobogrammatic = (n, strob = '', answers = []) => {
     }
     return answers
 };
+
+console.log(findStrobogrammatic(5))
