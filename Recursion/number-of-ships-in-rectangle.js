@@ -36,9 +36,6 @@ On the input ships is only given to initialize the map internally. You must solv
  * // This is Sea's API interface.
  * // You should not implement it, or speculate about its implementation
  * function Sea() {
- *     @param {integer[]} topRight
- *     @param {integer[]} bottomLeft
- *     @return {boolean}
  *     this.hasShips = function(topRight, bottomLeft) {
  *         ...
  *     };
@@ -46,12 +43,43 @@ On the input ships is only given to initialize the map internally. You must solv
  */
 
 /**
- * @param {Sea} sea
- * @param {integer[]} topRight
- * @param {integer[]} bottomLeft
- * @return {integer}
  
  */
+
+function cleanerCountShips(sea, topRight, bottomLeft) {
+  let sum = 0;
+  const [botX, botY] = bottomLeft;
+  const [topX, topY] = topRight;
+  if (!sea.hasShips(topRight, bottomLeft)) return 0; //if there are no ships
+  if (topX === botX && topY === botY) return 1; //otherwise, if there are ships AND this is just one point
+
+  const midX = Math.floor((botX + topX) / 2);
+  const midY = Math.floor((botY + topY) / 2);
+  if (topX === botX) { //if on one vertical line
+    sum += countShips(sea, [botX, midY], [botX, botY]);
+    sum += countShips(sea, [topX, topY], [botX, midY + 1]);
+  } else if (topY === botY) { //if on one horizantal line
+    sum += countShips(sea, [midX, botY], [botX, botY]);
+    sum += countShips(sea, [topX, topY], [midX + 1, topY]);
+  } else if (topY > botY && topX > botX) { //otherwise
+    sum += countShips(sea, [midX, midY], bottomLeft);
+    sum += countShips(sea, [midX, topY], [botX, midY + 1]);
+    sum += countShips(sea, topRight, [midX + 1, midY + 1]);
+    sum += countShips(sea, [topX, midY], [midX + 1, botY]);
+  }
+  return sum;
+}
+
+
+
+
+
+
+
+
+
+
+
 var countShips = function (sea, topRight, bottomLeft) {
   console.log('New call stack', topRight, bottomLeft);
   let sum = 0;
