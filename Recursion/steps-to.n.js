@@ -24,4 +24,4 @@ const betterStepsToN = (n, curLoc = 0, ways = 0, fromHere = {}) => {
 }
 
 
-console.log(betterStepsToN(50))
+console.log(betterStepsToN(35))
