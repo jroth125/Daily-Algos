@@ -39,4 +39,4 @@ const findStrobogrammatic = (n, strob = '', answers = []) => {
     return answers
 };
 
-console.log(findStrobogrammatic(5))
+console.log(findStrobogrammatic(10))
