@@ -28,3 +28,5 @@ function generateParenthesis (num, curString = '', numL = num, numR = num, combo
     return combos
     
 }
+
+module.exports = generateParenthesis
