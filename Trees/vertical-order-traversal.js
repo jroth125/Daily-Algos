@@ -90,3 +90,6 @@ const verticalOrder = (tree) => {
     orderIdxs.sort((a, b) => a - b)
     return orderIdxs.map(idx => order[idx])
 };
+
+
+

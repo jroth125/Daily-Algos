@@ -29,6 +29,45 @@ The multilevel linked list in the input is as follows:
  * };
  */
 
+
+//APPROACH
+/*
+Base case: If there are no child nodes, then just iterate to the tail (to actually make sure of that), and then return the head
+Recursive case: If there is a child node, recurse, and return the head of the list. 
+                Then connect the tail of the current list to the head of the nested list. 
+                Use the goToEnd(head) helper function to get to the new tail
+*/
+ 
+const betterFlatten = (head) => {
+    let curNode = head
+    while (curNode) {
+        if (curNode.child) {
+            let oldNext = curNode.next
+            let newHead = flatten(curNode.child)
+            curNode.child = null
+            curNode.next = newHead
+            newHead.prev = curNode
+            let lastOfTheNewNodes = goToEnd(curNode.next)
+            if (oldNext) {
+                lastOfTheNewNodes.next = oldNext
+                oldNext.prev = lastOfTheNewNodes
+            }
+        } 
+        curNode = curNode.next
+
+    }
+    return head
+}
+
+
+
+const goToEnd = (head) => {
+    let curNode = head
+    while (curNode.next) {
+        curNode = curNode.next
+    }
+    return curNode
+}
 const flatten = (head, parent = null) => {
     let curNode = head
     let tail;
