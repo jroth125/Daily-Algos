@@ -59,8 +59,6 @@ const betterFlatten = (head) => {
     return head
 }
 
-
-
 const goToEnd = (head) => {
     let curNode = head
     while (curNode.next) {
@@ -68,6 +66,12 @@ const goToEnd = (head) => {
     }
     return curNode
 }
+
+
+
+
+
+
 const flatten = (head, parent = null) => {
     let curNode = head
     let tail;
