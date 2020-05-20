@@ -36,36 +36,78 @@ Each {time} consist of digits, and represent an integer between 0 and 1000.
 Each {amount} consist of digits, and represent an integer between 0 and 2000.
 */
 
+// const invalidTransactions = (transactions) => {
+//     let invalids = new Set();
+//     let arrayOfTrans = transactions.map((payment) => {
+//       let paymentArray = payment.split(',');
+//       if (+paymentArray[2] > 1000) invalids.add(payment);
+//       return paymentArray;
+//     });
+//     arrayOfTrans.sort(sortTransactions);
+  
+//     for (let i = 0; i < arrayOfTrans.length; i++) {
+//       const transaction = arrayOfTrans[i];
+//       const [person, time, _, city] = transaction
+//       for (let j = i + 1; j < arrayOfTrans.length; j++) {
+//         let curTrans = arrayOfTrans[j];
+//         if (person !== curTrans[0]) break;
+//         if (city !== curTrans[3] && Math.abs(time - curTrans[1]) <= 60) {
+//           invalids.add(curTrans.join(','));
+//           invalids.add(transaction.join(','));
+//         }
+//       }
+//     }
+//     return [...invalids];
+//   };
+  
+  
+//   function sortTransactions(a,b) {
+//       if (a[0] > b[0]) return 1;
+//       else if (a[0] === b[0]) {
+//         if (a[1] > b[1]) return 1;
+//         else if (a[1] === b[1]) return 0;
+//         else return -1;
+//       } else return -1;
+//   }
+
+
 const invalidTransactions = (transactions) => {
-    let invalids = new Set();
-    let arrayOfTrans = transactions.map((payment) => {
-      let paymentArray = payment.split(',');
-      if (+paymentArray[2] > 1000) invalids.add(payment);
-      return paymentArray;
-    });
-    arrayOfTrans.sort(sortTransactions);
-  
-    for (let i = 0; i < arrayOfTrans.length; i++) {
-      const transaction = arrayOfTrans[i];
-      const [person, time, _, city] = transaction
-      for (let j = i + 1; j < arrayOfTrans.length; j++) {
-        let curTrans = arrayOfTrans[j];
-        if (person !== curTrans[0]) break;
-        if (city !== curTrans[3] && Math.abs(time - curTrans[1]) <= 60) {
-          invalids.add(curTrans.join(','));
-          invalids.add(transaction.join(','));
-        }
-      }
-    }
-    return [...invalids];
-  };
-  
-  
-  function sortTransactions(a,b) {
-      if (a[0] > b[0]) return 1;
+  debugger;
+  let invalids = new Set
+  let filteredTransactions = []
+  transactions.forEach(data => {
+      const [name, time, cost, city] = data.split(',')
+      if (cost > 1000) {
+          invalids.add(data)
+      } else filteredTransactions.push([name, time, cost, city])
+  })
+  filteredTransactions.sort((a, b) => {
+      if (a[0] > b[0]) return 1
       else if (a[0] === b[0]) {
-        if (a[1] > b[1]) return 1;
-        else if (a[1] === b[1]) return 0;
-        else return -1;
-      } else return -1;
+          if (a[1] > b[1]) return 1
+          else if (a[1] === b[1]) return 0
+          else return -1
+      } else return -1
+  })
+  for (let i = 0; i < filteredTransactions.length; i++) {
+      let [name, time, cost, city] = filteredTransactions[i]
+      let j = i + 1
+      innerWhile:
+      while (j < filteredTransactions.length && name === filteredTransactions[j][0]) {
+          let newTrans = filteredTransactions[j]
+          if (newTrans[3] === city) {
+            j++
+            continue innerWhile
+          }
+          else if (Math.abs(newTrans[1] - time) <= 60) {
+              invalids.add(filteredTransactions[j].join(','))
+              invalids.add(filteredTransactions[i].join(','))
+          }
+          j++        
+      }
   }
+  return [...invalids]
+}
+
+
+console.log(invalidTransactions(["alex,676,260,bangkok","bob,656,1366,bangkok","alex,393,616,bangkok","bob,820,990,amsterdam","alex,596,1390,amsterdam"]))
