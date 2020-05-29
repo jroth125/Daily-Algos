@@ -32,4 +32,4 @@ const depthInParentheses = string => {
     return arrOfStrings
 }
 
-console.log(depthInParents('(((fg)(jj))(f))'))
+console.log(depthInParentheses('(((fg)(jj))(f))'))
